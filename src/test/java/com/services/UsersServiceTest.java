@@ -1,4 +1,4 @@
-package com.test.conexa.services;
+package com.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
