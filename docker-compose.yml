@@ -4,7 +4,7 @@ services:
   javaapp:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.local
     image: javaapp-container
     container_name: javaapp-container
     ports:
