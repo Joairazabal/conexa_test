@@ -1,0 +1,20 @@
+FROM openjdk:8-jdk-alpine
+
+# Instalar Maven
+RUN apk add --no-cache maven
+
+# Crear directorio para la aplicación
+WORKDIR /app
+
+# Copiar el archivo POM y los archivos fuente
+COPY pom.xml ./
+COPY src ./src
+
+# Descargar dependencias
+RUN mvn dependency:go-offline -B
+
+# Copiar el código fuente y compilar el proyecto
+COPY . .
+
+# Ejecutar pruebas y generar reporte de cobertura
+CMD ["mvn", "clean", "test", "jacoco:report"]

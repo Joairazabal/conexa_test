@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Ignorar directorio de reportes de Jacoco
+/target/site/jacoco/
+
 ### STS ###
 .apt_generated
 .classpath
