@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  javaapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: javaapp-container
+    container_name: javaapp-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgresql:5432/test_conexa
+      SPRING_DATASOURCE_USERNAME: joaquin
+      SPRING_DATASOURCE_PASSWORD: joaquin
+    volumes:
+      - .:/app  # Mapea el directorio actual al directorio /app en el contenedor
+      - ~/.m2:/root/.m2  # Mapea el repositorio de Maven local para caching
+    working_dir: /app
+    command: ./mvnw spring-boot:run  # Comando para ejecutar tu aplicación Spring Boot
+
+
+  postgresql:
+    image: postgres:13
+    container_name: postgresql-container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: test_conexa
+      POSTGRES_USER: joaquin
+      POSTGRES_PASSWORD: joaquin
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "test_conexa"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
