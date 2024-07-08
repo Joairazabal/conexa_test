@@ -1,15 +1,15 @@
-/app/src/test/java/com/conexa/service/impl/VehicleServiceImplTest.java
-/app/src/test/java/com/conexa/service/impl/RoleServiceTest.java
-/app/src/test/java/com/conexa/service/impl/UsersServiceTest.java
-/app/src/test/java/com/conexa/controller/FilmsControllerTest.java
-/app/src/test/java/com/conexa/security/jwt/JwtRequestFilterTest.java
-/app/src/test/java/com/conexa/service/impl/FilmService.java
-/app/src/test/java/com/conexa/service/impl/AuthServiceImplTest.java
-/app/src/test/java/com/conexa/service/impl/StarShipServiceImplTest.java
-/app/src/test/java/com/conexa/controller/AuthControllerTest.java
-/app/src/test/java/com/conexa/controller/PeopleControllerTest.java
-/app/src/test/java/com/conexa/service/impl/ConsumerServiceTest.java
-/app/src/test/java/com/ConexaApplicationTests.java
-/app/src/test/java/com/conexa/security/service/UserDetailsServiceImplTest.java
-/app/src/test/java/com/conexa/controller/ControllerAdviceTest.java
-/app/src/test/java/com/conexa/security/jwt/JwtTokenUtilTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\controller\ControllerAdviceTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\ConsumerServiceTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\FilmService.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\UsersServiceTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\RoleServiceTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\controller\FilmsControllerTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\security\jwt\JwtRequestFilterTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\ConexaApplicationTests.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\security\jwt\JwtTokenUtilTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\controller\AuthControllerTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\controller\PeopleControllerTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\security\service\UserDetailsServiceImplTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\AuthServiceImplTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\VehicleServiceImplTest.java
+D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\service\impl\StarShipServiceImplTest.java

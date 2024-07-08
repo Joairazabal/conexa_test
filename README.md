@@ -1,5 +1,17 @@
 ﻿# Conexa Examen Técnico
 
+### Resumen sobre el desarrollo
+
+Teniendo en cuenta cómo llega la información de cada endpoint que consumo de la API, decidí estructurarlo en un
+servicio/controlador para cada una de las entidades, tipándolas mediante el uso de DTOs. Podría haber creado un único
+endpoint que reciba por pathVariable el nombre de la entidad (por ejemplo: 'vehicles'), así como el id o name, y tendría
+un único endpoint. Sin embargo, no considero que sea una buena práctica.
+
+Para un proyecto real que puede crecer con el tiempo, no es recomendable asignar todas las responsabilidades a un solo
+servicio o controlador. Esto complicaría la implementación de nuevas funcionalidades específicas y no sería sostenible a
+largo plazo. Al dividir la lógica en servicios y controladores dedicados para cada entidad, se puede lograr un diseño
+más modular y mantenible, facilitando la evolución del proyecto y la incorporación de nuevas características.
+
 ### Levantar el Proyecto en Local
 
 #### Clonar el Repositorio:
@@ -78,6 +90,14 @@ Una vez que la aplicación está en funcionamiento, puedes acceder a la document
 ```bash
 http://localhost:8080/swagger-ui.html
 ```
+
+### Usuario de prueba
+
+#### Usuario Admin:
+
+email: admin@gmail.com
+
+password: conexa
 
 ## Deploy
 
