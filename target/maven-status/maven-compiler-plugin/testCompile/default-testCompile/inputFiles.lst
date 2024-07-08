@@ -1,7 +1,15 @@
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\conexa\controller\AuthControllerTest.java
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\services\RoleServiceTest.java
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\services\UsersServiceTest.java
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\services\AuthServiceImplTest.java
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\services\FilmService.java
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\services\ConsumerServiceTest.java
-D:\pruebas tecnicas\conexa\conexa\src\test\java\com\ConexaApplicationTests.java
+/app/src/test/java/com/conexa/service/impl/VehicleServiceImplTest.java
+/app/src/test/java/com/conexa/service/impl/RoleServiceTest.java
+/app/src/test/java/com/conexa/service/impl/UsersServiceTest.java
+/app/src/test/java/com/conexa/controller/FilmsControllerTest.java
+/app/src/test/java/com/conexa/security/jwt/JwtRequestFilterTest.java
+/app/src/test/java/com/conexa/service/impl/FilmService.java
+/app/src/test/java/com/conexa/service/impl/AuthServiceImplTest.java
+/app/src/test/java/com/conexa/service/impl/StarShipServiceImplTest.java
+/app/src/test/java/com/conexa/controller/AuthControllerTest.java
+/app/src/test/java/com/conexa/controller/PeopleControllerTest.java
+/app/src/test/java/com/conexa/service/impl/ConsumerServiceTest.java
+/app/src/test/java/com/ConexaApplicationTests.java
+/app/src/test/java/com/conexa/security/service/UserDetailsServiceImplTest.java
+/app/src/test/java/com/conexa/controller/ControllerAdviceTest.java
+/app/src/test/java/com/conexa/security/jwt/JwtTokenUtilTest.java

@@ -22,6 +22,14 @@ public class StarShipServiceImpl implements StarShipService {
 
     private final ConsumerService consumerService;
 
+    /**
+     * Obtiene una lista paginada de StarShips.
+     * Si no se proporciona el parámetro `limit` en el mapa `uriVariables`,
+     * se establece un valor por defecto de "10".
+     *
+     * @param uriVariables Un mapa de parámetros URI.
+     * @return Un objeto PageDTO que contiene la lista paginada de Starships.
+     */
     @Override
     public PageDTO<StarshipDTO> getStarShip(Map<String, String> uriVariables) {
         if (uriVariables.get("limit") == null) {
@@ -30,6 +38,13 @@ public class StarShipServiceImpl implements StarShipService {
         return this.consumerService.getExternalApiDataWithPages("/starships", uriVariables, StarshipDTO.class);
     }
 
+    /**
+     * Obtiene los detalles de los StarShips filtrados por nombre.
+     *
+     * @param uriVariables Un mapa de parámetros URI.
+     * @return Un objeto ResponseDetailDTO que contiene la lista de ResultDetailDTO
+     * con las propiedades de los Starships.
+     */
     @Override
     public ResponseDetailDTO<List<ResultDetailDTO<PropertiesStarshipDTO>>> getDetailStarshipByName(
             HashMap<String, String> uriVariables) {
@@ -37,6 +52,13 @@ public class StarShipServiceImpl implements StarShipService {
                 ResponseDetailDTO.class);
     }
 
+    /**
+     * Obtiene los detalles de un StarShip específico por su ID.
+     *
+     * @param idStarship El ID del StarShip a buscar.
+     * @return Un objeto ResponseDetailDTO que contiene el ResultDetailDTO
+     * con las propiedades del StarShip.
+     */
     @Override
     public ResponseDetailDTO<ResultDetailDTO<PropertiesStarshipDTO>> getDetailStarshipById(String idStarship) {
         return this.consumerService.getExternalApiData("/starships/" + idStarship, null,

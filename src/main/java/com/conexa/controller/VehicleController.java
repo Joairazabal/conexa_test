@@ -30,7 +30,7 @@ public class VehicleController {
         return ResponseEntity.ok().body(this.vehicleService.getAllVehicles(uriVariables));
     }
 
-    @GetMapping("/vehicles/{id}")
+    @GetMapping("/admin/vehicles/{id}")
     public ResponseEntity<ResponseDetailDTO<ResultDetailDTO<PropertiesVehiclesDTO>>> getDetailVehicleById(
             @PathVariable String id) {
 

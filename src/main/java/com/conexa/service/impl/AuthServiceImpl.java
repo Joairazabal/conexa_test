@@ -22,17 +22,7 @@ import com.conexa.service.UsersService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * Implementación del servicio de autenticación que maneja operaciones de inicio
- * de sesión y registro de usuarios.
- * 
- * @param requestUser DTO que contiene los datos de inicio de sesión del
- *                    usuario.
- * @return ResponseEntity con el token JWT generado después de la autenticación
- *         exitosa.
- * @throws AuthException Si el usuario no se encuentra en la base de datos o la
- *                       contraseña proporcionada es incorrecta.
- */
+
 @AllArgsConstructor
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -51,11 +41,11 @@ public class AuthServiceImpl implements AuthService {
 
     /**
      * Método para iniciar sesión de un usuario.
-     * 
+     *
      * @param requestUser DTO que contiene los datos de inicio de sesión del
      *                    usuario.
      * @return ResponseEntity con el token JWT generado después de la autenticación
-     *         exitosa.
+     * exitosa.
      * @throws AuthException Si el usuario no se encuentra en la base de datos o la
      *                       contraseña proporcionada es incorrecta.
      */
@@ -83,7 +73,7 @@ public class AuthServiceImpl implements AuthService {
 
     /**
      * Método para registrar un nuevo usuario.
-     * 
+     *
      * @param registerRequestDTO DTO que contiene los datos para registrar un nuevo
      *                           usuario.
      * @return ResponseEntity indicando que el usuario fue creado con éxito.
@@ -92,23 +82,23 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     public ResponseEntity<String> registrer(RegisterRequestDTO registerRequestDTO) {
-    
+
         boolean userExists = this.usersService.existUserByEmail(registerRequestDTO.getEmail());
-    
+
         if (userExists) {
             throw new AuthException("AUTH-406", 406, "Ya existe un usuario con ese email");
         }
-    
+
         Role role = this.roleService.findById(1L);
-    
+
         Users newUser = new Users();
         newUser.setEmail(registerRequestDTO.getEmail());
         newUser.setPassword(passwordEncoder.encode(registerRequestDTO.getPassword()));  // Codificar la contraseña
         newUser.setRole(role);
-    
+
         this.userDetailsServiceImpl.signUpUser(newUser);
-    
+
         return ResponseEntity.ok().body("Usuario creado con éxito");
     }
-    
+
 }

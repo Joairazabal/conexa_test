@@ -32,7 +32,7 @@ public class StarShipController {
         return ResponseEntity.ok().body(this.starShipsService.getStarShip(uriVariables));
     }
 
-    @GetMapping("/starships/{id}")
+    @GetMapping("/admin/starships/{id}")
     public ResponseEntity<ResponseDetailDTO<ResultDetailDTO<PropertiesStarshipDTO>>> getDetailStarship(
             @PathVariable String id) {
         return ResponseEntity.ok().body(this.starShipsService.getDetailStarshipById(id));

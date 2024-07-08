@@ -1,11 +1,13 @@
 package com.conexa.security.service;
 
 // import com.conexa.domain.ConfirmationToken;
+
 import com.conexa.domain.Role;
 import com.conexa.domain.Users;
 import com.conexa.exception.AuthException;
 import com.conexa.repository.RoleRepository;
 // import com.conexa.service.RegistrationService;
+import com.conexa.security.config.SecurityConfig;
 import com.conexa.service.UsersService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementación del servicio UserDetails para la autenticación de usuarios.
- * Este servicio carga los detalles de un usuario basado en su email y gestiona
- * el registro de nuevos usuarios.
- *
- * @param email Email del usuario para cargar sus detalles durante la
- *              autenticación.
- * @return UserDetails con los detalles del usuario encontrado.
- * @throws AuthException Si el usuario no se encuentra en la base de datos
- *                       durante la autenticación.
- */
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -39,18 +32,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UsersService usersService;
 
     @Autowired
-    private PasswordEncoder encoder;
-
-    @Autowired
     private RoleRepository roleRepository;
 
+
     /**
-     * Carga los detalles del usuario basado en el email para la autenticación.
+     * Carga un usuario por su nombre de usuario (en este caso, por email).
      *
-     * @param email Email del usuario para cargar sus detalles.
-     * @return UserDetails con los detalles del usuario encontrado.
-     * @throws AuthException Si el usuario no se encuentra en la base de datos
-     *                       durante la autenticación.
+     * @param email Email del usuario para buscar.
+     * @return Detalles del usuario encontrado como UserDetails.
+     * @throws AuthException Si el usuario no está presente en la base de datos.
      */
     @Override
     public UserDetails loadUserByUsername(String email) {
@@ -67,17 +57,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     /**
-     * Registra un nuevo usuario en la base de datos, cifrando su contraseña antes
-     * de almacenarla.
+     * Registra un nuevo usuario en el sistema.
      *
      * @param user Usuario a registrar.
      */
     public void signUpUser(Users user) {
-        String encodedPassword = encoder.encode(user.getPassword());
+        String encodedPassword = user.getPassword();
         user.setPassword(encodedPassword);
 
-        List<Role> roles = roleRepository.findAll();
-        user.setRole(roles.get(0));
+        Role defaultRole = roleRepository.findById(1L).orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+        user.setRole(defaultRole);
 
         this.usersService.save(user);
     }

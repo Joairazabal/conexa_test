@@ -30,7 +30,7 @@ public class PeopleController {
         return this.peopleService.getAllPeople(uriParams);
     }
 
-    @GetMapping("/people/{id}")
+    @GetMapping("/admin/people/{id}")
     public ResponseEntity<ResponseDetailDTO<ResultDetailDTO<PropertiesPeopleDTO>>> getPeopleById(
             @PathVariable String id) {
         return ResponseEntity.ok().body(this.peopleService.getPeopleDetailById(id));

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsersServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">conexa</a> &gt; <a href="index.source.html" class="el_package">com.conexa.service.impl</a> &gt; <span class="el_source">UsersServiceImpl.java</span></div><h1>UsersServiceImpl.java</h1><pre class="source lang-java linenums">package com.conexa.service.impl;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.conexa.domain.Users;
+import com.conexa.repository.UsersRepository;
+import com.conexa.service.UsersService;
+
+import lombok.AllArgsConstructor;
+
+<span class="fc" id="L13">@AllArgsConstructor</span>
+@Service
+public class UsersServiceImpl implements UsersService {
+
+    private final UsersRepository usersRepository;
+
+    /**
+     * Busca un usuario por su dirección de correo electrónico.
+     *
+     * @param email La dirección de correo electrónico del usuario a buscar.
+     * @return Un Optional que puede contener un objeto Users si se encuentra el
+     *         usuario, o vacío si no se encuentra.
+     */
+    @Override
+    public Optional&lt;Users&gt; findByEmail(String email) {
+<span class="fc" id="L28">        return this.usersRepository.findByEmail(email);</span>
+    }
+
+    /**
+     * Verifica si existe un usuario con la dirección de correo electrónico
+     * especificada.
+     *
+     * @param email La dirección de correo electrónico del usuario a verificar.
+     * @return true si existe un usuario con el correo electrónico especificado,
+     *         false de lo contrario.
+     */
+    @Override
+    public Boolean existUserByEmail(String email) {
+<span class="fc" id="L41">        return this.usersRepository.existsByEmail(email);</span>
+    }
+
+    /**
+     * Guarda o actualiza un usuario en la base de datos.
+     *
+     * @param user El usuario a guardar o actualizar.
+     */
+    @Override
+    public void save(Users user) {
+<span class="fc" id="L51">        this.usersRepository.save(user);</span>
+<span class="fc" id="L52">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @NoArgsConstructor
 @Setter
 @Getter
@@ -29,4 +30,9 @@ public class Users {
     @ManyToOne
     private Role role;
 
+    public Users(String email, String password, Role role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 }

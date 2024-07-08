@@ -1,53 +1,54 @@
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\jwt\JwtRequestFilter.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\config\RestTemplateConfig.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\service\UserDetailsServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\ConexaApplication.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\StarshipDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\PropertiesFilmDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\ConsumerServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\RoleService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\RoleServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\StarShipService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\jwt\JwtTokenUtil.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\ResponseFilmDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\controller\PeopleController.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\PageDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\ResultDetailDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\ConsumerService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\jwt\JwtAuthEntryPoint.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\UsersService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\PropertiesStarshipDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\ResultFilmDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\controller\AuthController.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\PropertiesPeopleDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\PeopleServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\AuthServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\exception\AuthException.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\payload\JwtResponse.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\exception\ServerExternalException.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\VehicleService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\UsersServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\config\SecurityConfig.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\payload\LoginRequestDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\PropertiesVehiclesDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\payload\MessageResponse.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\VehicleServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\payload\RegisterRequestDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\PeopleService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\domain\Role.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\domain\Users.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\controller\FilmsController.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\ResponseDetailDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\ErrorDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\PeopleDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\repository\UsersRepository.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\controller\ControllerAdvice.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\controller\VehicleController.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\FilmService.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\StarShipServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\impl\FilmServiceImpl.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\security\config\EncoderConfig.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\dto\VehiclesDTO.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\repository\RoleRepository.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\controller\StarShipController.java
-D:\pruebas tecnicas\conexa\conexa\src\main\java\com\conexa\service\AuthService.java
+/app/src/main/java/com/conexa/security/payload/RegisterRequestDTO.java
+/app/src/main/java/com/conexa/service/FilmService.java
+/app/src/main/java/com/conexa/dto/ResponseDetailDTO.java
+/app/src/main/java/com/conexa/security/payload/MessageResponse.java
+/app/src/main/java/com/conexa/service/UsersService.java
+/app/src/main/java/com/conexa/security/config/SecurityConfig.java
+/app/src/main/java/com/conexa/dto/VehiclesDTO.java
+/app/src/main/java/com/conexa/controller/ControllerAdvice.java
+/app/src/main/java/com/conexa/exception/AuthException.java
+/app/src/main/java/com/conexa/security/payload/NotFoundAccesHandler.java
+/app/src/main/java/com/conexa/config/RestTemplateConfig.java
+/app/src/main/java/com/conexa/dto/ResultDetailDTO.java
+/app/src/main/java/com/conexa/dto/PropertiesFilmDTO.java
+/app/src/main/java/com/conexa/domain/Role.java
+/app/src/main/java/com/conexa/dto/PropertiesVehiclesDTO.java
+/app/src/main/java/com/conexa/config/SwaggerConfig.java
+/app/src/main/java/com/conexa/service/AuthService.java
+/app/src/main/java/com/conexa/controller/AuthController.java
+/app/src/main/java/com/conexa/service/RoleService.java
+/app/src/main/java/com/conexa/controller/PeopleController.java
+/app/src/main/java/com/conexa/repository/UsersRepository.java
+/app/src/main/java/com/conexa/service/impl/ConsumerServiceImpl.java
+/app/src/main/java/com/conexa/dto/PageDTO.java
+/app/src/main/java/com/conexa/service/StarShipService.java
+/app/src/main/java/com/conexa/dto/PeopleDTO.java
+/app/src/main/java/com/conexa/domain/Users.java
+/app/src/main/java/com/conexa/security/jwt/JwtRequestFilter.java
+/app/src/main/java/com/conexa/security/payload/LoginRequestDTO.java
+/app/src/main/java/com/conexa/service/impl/FilmServiceImpl.java
+/app/src/main/java/com/conexa/controller/StarShipController.java
+/app/src/main/java/com/conexa/security/payload/JwtResponse.java
+/app/src/main/java/com/conexa/service/impl/StarShipServiceImpl.java
+/app/src/main/java/com/conexa/dto/ResultFilmDTO.java
+/app/src/main/java/com/conexa/ConexaApplication.java
+/app/src/main/java/com/conexa/service/VehicleService.java
+/app/src/main/java/com/conexa/controller/FilmsController.java
+/app/src/main/java/com/conexa/dto/PropertiesStarshipDTO.java
+/app/src/main/java/com/conexa/exception/ServerExternalException.java
+/app/src/main/java/com/conexa/service/impl/UsersServiceImpl.java
+/app/src/main/java/com/conexa/service/PeopleService.java
+/app/src/main/java/com/conexa/dto/ResponseFilmDTO.java
+/app/src/main/java/com/conexa/service/impl/VehicleServiceImpl.java
+/app/src/main/java/com/conexa/security/jwt/JwtTokenUtil.java
+/app/src/main/java/com/conexa/service/impl/PeopleServiceImpl.java
+/app/src/main/java/com/conexa/dto/ErrorDTO.java
+/app/src/main/java/com/conexa/service/ConsumerService.java
+/app/src/main/java/com/conexa/dto/PropertiesPeopleDTO.java
+/app/src/main/java/com/conexa/security/jwt/JwtAuthEntryPoint.java
+/app/src/main/java/com/conexa/service/impl/AuthServiceImpl.java
+/app/src/main/java/com/conexa/security/service/UserDetailsServiceImpl.java
+/app/src/main/java/com/conexa/service/impl/RoleServiceImpl.java
+/app/src/main/java/com/conexa/dto/StarshipDTO.java
+/app/src/main/java/com/conexa/repository/RoleRepository.java
+/app/src/main/java/com/conexa/controller/VehicleController.java

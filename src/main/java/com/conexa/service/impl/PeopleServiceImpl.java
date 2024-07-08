@@ -29,7 +29,7 @@ public class PeopleServiceImpl implements PeopleService {
      * @param uriVariables Mapa de variables de URI que pueden incluir 'name' u
      *                     otros parámetros.
      * @return Objeto ResponseDetailDTO con el mensaje de respuesta y la lista de
-     *         detalles.
+     * detalles.
      */
     @Override
     public ResponseDetailDTO<List<ResultDetailDTO<PropertiesPeopleDTO>>> getPeopleDetailByName(
@@ -51,6 +51,12 @@ public class PeopleServiceImpl implements PeopleService {
         return this.consumerService.getExternalApiDataWithPages("/people", uriVariables, PeopleDTO.class);
     }
 
+    /**
+     * Obtiene el detalle de una persona basandose en parametro idPeople.
+     * Si no se especifica 'limit', se usa un valor predeterminado de 10.
+     *
+     * @return Objeto ResponseDetailDTO<ResultDetailDTO<PropertiesPeopleDTO>> que contiene los detalles de una persona.
+     */
     @Override
     public ResponseDetailDTO<ResultDetailDTO<PropertiesPeopleDTO>> getPeopleDetailById(String idPeople) {
         return this.consumerService.getExternalApiData("/people/" + idPeople, null, ResponseDetailDTO.class);

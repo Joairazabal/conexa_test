@@ -18,7 +18,7 @@ public class JwtTokenUtil {
 
     private static final Logger log = LoggerFactory.getLogger(JwtTokenUtil.class);
 
-    @Value("noeliaIturraspe")
+    @Value("${jwt.secret}")
     private String jwtSecret;
 
     @Value("86400000")
@@ -31,12 +31,7 @@ public class JwtTokenUtil {
         Claims claims = Jwts.claims().setSubject(userPrincipal.getUsername());
         claims.put("role", rol);
 
-        return Jwts.builder()
-                .setClaims(claims)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                .signWith(SignatureAlgorithm.HS512, jwtSecret)
-                .compact();
+        return Jwts.builder().setClaims(claims).setIssuedAt(new Date()).setExpiration(new Date((new Date()).getTime() + jwtExpirationMs)).signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
     }
 
     public String getUserNameFromJwtToken(String token) {

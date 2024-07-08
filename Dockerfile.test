@@ -3,9 +3,6 @@ FROM openjdk:8-jdk-alpine
 # Instalar Maven
 RUN apk add --no-cache maven
 
-# Crear directorio para la aplicación
-WORKDIR /app
-
 # Copiar el archivo POM y los archivos fuente
 COPY pom.xml ./
 COPY src ./src

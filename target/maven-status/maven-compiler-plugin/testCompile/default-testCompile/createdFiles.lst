@@ -1,7 +1,1 @@
-com\ConexaApplicationTests.class
-com\services\AuthServiceImplTest.class
-com\services\ConsumerServiceTest.class
-com\services\UsersServiceTest.class
-com\services\RoleServiceTest.class
-com\conexa\controller\AuthControllerTest.class
-com\services\FilmService.class
+com/conexa/security/jwt/JwtRequestFilterTest.class

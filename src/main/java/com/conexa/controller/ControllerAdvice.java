@@ -17,13 +17,13 @@ public class ControllerAdvice {
      *
      * @param ex La excepción de tipo RuntimeException lanzada.
      * @return ResponseEntity con un objeto ErrorDTO y código de estado HTTP 500
-     *         (Internal Server Error).
+     * (Internal Server Error).
      */
     @ExceptionHandler(value = RuntimeException.class)
     public ResponseEntity<ErrorDTO> runtimeExceptionHandler(RuntimeException ex) {
         ErrorDTO errorDTO = ErrorDTO.builder()
                 .code("C-500")
-                .message(ex.getMessage())
+                .message(ex.getCause().getMessage())
                 .build();
         return new ResponseEntity<>(errorDTO, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -33,7 +33,7 @@ public class ControllerAdvice {
      *
      * @param ex La excepción de tipo ServerExternalException lanzada.
      * @return ResponseEntity con un objeto ErrorDTO y código de estado HTTP
-     *         específico proporcionado por la excepción.
+     * específico proporcionado por la excepción.
      */
     @ExceptionHandler(value = ServerExternalException.class)
     public ResponseEntity<ErrorDTO> serverExternalExceptionHandler(ServerExternalException ex) {
@@ -49,7 +49,7 @@ public class ControllerAdvice {
      *
      * @param ex La excepción de tipo AuthException lanzada.
      * @return ResponseEntity con un objeto ErrorDTO y código de estado HTTP
-     *         específico proporcionado por la excepción.
+     * específico proporcionado por la excepción.
      */
     @ExceptionHandler(value = AuthException.class)
     public ResponseEntity<ErrorDTO> authExceptionHandler(AuthException ex) {

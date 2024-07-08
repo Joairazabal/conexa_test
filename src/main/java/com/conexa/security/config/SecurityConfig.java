@@ -3,6 +3,7 @@ package com.conexa.security.config;
 import com.conexa.exception.AuthException;
 import com.conexa.security.jwt.JwtAuthEntryPoint;
 import com.conexa.security.jwt.JwtRequestFilter;
+import com.conexa.security.payload.NotFoundAccesHandler;
 import com.conexa.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -37,12 +39,19 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthEntryPoint unauthorizedHandler;
 
-    @Autowired
-    private PasswordEncoder encoder;
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     public JwtRequestFilter authenticationJwtTokenFilter() {
         return new JwtRequestFilter();
+    }
+
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+        return new NotFoundAccesHandler();
     }
 
     /**
@@ -57,11 +66,8 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) {
         try {
-            return http.getSharedObject(AuthenticationManagerBuilder.class)
-                    .userDetailsService(userDetailsService)
-                    .passwordEncoder(encoder)
-                    .and()
-                    .build();
+            return http.getSharedObject(AuthenticationManagerBuilder.class).userDetailsService(userDetailsService)
+                    .passwordEncoder(passwordEncoder()).and().build();
         } catch (Exception e) {
             throw new AuthException("AUTH-500", 500, e.getMessage());
         }
@@ -70,7 +76,7 @@ public class SecurityConfig {
 
     /**
      * Configuración del filtro de seguridad.
-     * 
+     *
      * @param http Objeto HttpSecurity para configurar la seguridad HTTP.
      * @return SecurityFilterChain configurado.
      * @throws AuthException Si hay errores en la configuración.
@@ -78,18 +84,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         try {
-            http
-                    .cors(AbstractHttpConfigurer::disable)
-                    .csrf(AbstractHttpConfigurer::disable)
-                    .exceptionHandling(
-                            exceptionHandling -> exceptionHandling.authenticationEntryPoint(unauthorizedHandler))
-                    .sessionManagement(
-                            sessionManagement -> sessionManagement
-                                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                    .authorizeHttpRequests(authorize -> authorize
-                            .antMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
-                            .antMatchers("/api/auth/**").permitAll()
-                            .anyRequest().permitAll());
+            http.cors(AbstractHttpConfigurer::disable).csrf(AbstractHttpConfigurer::disable).exceptionHandling(exceptionHandling ->
+                            exceptionHandling.authenticationEntryPoint(unauthorizedHandler)
+                                    .accessDeniedHandler(accessDeniedHandler())
+                    )
+                    .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                    .authorizeHttpRequests(authorize ->
+                            authorize.antMatchers("/v1/auth/**")
+                                    .permitAll().antMatchers("/api/v1/admin/**").hasAuthority("ADMIN")
+                                    .anyRequest().authenticated());
 
             http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
             return http.build();
@@ -109,8 +112,7 @@ public class SecurityConfig {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(Collections.singletonList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin", "X-Requested-With", "Origin",
-                "Content-Type", "Accept", "Authorization"));
+        configuration.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin", "X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

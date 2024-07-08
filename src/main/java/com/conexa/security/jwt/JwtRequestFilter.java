@@ -18,21 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Filtro de solicitud JWT para la autenticación basada en tokens JWT.
- * Este filtro intercepta cada solicitud entrante para validar y procesar el
- * token JWT proporcionado en la cabecera de autorización.
- * Si el token es válido, establece la autenticación del usuario en el contexto
- * de seguridad.
- *
- * @param request     Petición HTTP recibida.
- * @param response    Respuesta HTTP que se enviará.
- * @param filterChain Cadena de filtros para continuar el procesamiento de la
- *                    solicitud.
- * @throws ServletException Si ocurre un error de servlet al procesar la
- *                          solicitud.
- * @throws IOException      Si ocurre un error de E/S al procesar la solicitud.
- */
+
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtRequestFilter.class);
@@ -45,8 +31,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private UserDetailsServiceImpl userDetailsService;
 
     /**
-     * Implementación del filtro interno para procesar la autenticación basada en
-     * JWT.
+     * Filtro de solicitud JWT para la autenticación basada en tokens JWT.
+     * Este filtro intercepta cada solicitud entrante para validar y procesar el
+     * token JWT proporcionado en la cabecera de autorización.
+     * Si el token es válido, establece la autenticación del usuario en el contexto
+     * de seguridad.
      *
      * @param request     Petición HTTP recibida.
      * @param response    Respuesta HTTP que se enviará.
@@ -58,8 +47,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-            HttpServletResponse response,
-            FilterChain filterChain) throws ServletException, IOException {
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
         try {
             String jwt = parseJwt(request);
             if (jwt != null && jwtTokenUtil.validateJwtToken(jwt)) {
@@ -73,7 +62,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         } catch (Exception e) {
-            logger.error("Cannot set user authentication. idRol: {}", e);
+            logger.error("idRol: {}", e);
             throw new AuthException("AUTH-500", 500, e.getMessage());
         }
 
@@ -85,9 +74,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
      *
      * @param request Petición HTTP recibida.
      * @return Token JWT extraído, o null si no se encuentra o no está en el formato
-     *         esperado.
+     * esperado.
      */
-    private String parseJwt(HttpServletRequest request) {
+    String parseJwt(HttpServletRequest request) {
         String headerAuth = request.getHeader("Authorization");
 
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith(BEARER))

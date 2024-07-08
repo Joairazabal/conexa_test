@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
  * @param <T>          El tipo de los elementos contenidos en el PageDTO.
  * @return Un objeto PageDTO que contiene los datos obtenidos de la API externa.
  * @throws ServerExternalException si ocurre un error al obtener datos de la API
- *                                 externa.
+ * externa.
  */
 
 @Slf4j
@@ -78,6 +78,15 @@ public class ConsumerServiceImpl implements ConsumerService {
         }
     }
 
+    /**
+     * Obtiene los datos paginados de la api externa
+     *
+     * @param uriVariables Un mapa que contiene las variables URI para la solicitud.
+     * @param url          La URL de para obtener una respuesta de la rul base.
+     * @param responseType Clase con la cual debe mapear la data recibida por
+     *                     RestTemplate.
+     * @return Retorna una generico el cual determina su clase dependiendo de responseType.
+     */
     @Override
     public <T> T getExternalApiData(String url, Map<String, String> uriVariables, Class<T> responseType) {
         try {
@@ -125,12 +134,11 @@ public class ConsumerServiceImpl implements ConsumerService {
      * @param message El mensaje que contiene una cadena JSON con detalles del
      *                error.
      * @return El detalle del error extraído de la cadena JSON, o el mensaje
-     *         original si no se puede extraer el detalle.
+     * original si no se puede extraer el detalle.
      */
     @Override
     public String extractDetailFromMessage(String message) {
         try {
-            // Use regex to find the JSON part
             Pattern pattern = Pattern.compile("\\{.*\\}");
             Matcher matcher = pattern.matcher(message);
             if (matcher.find()) {
@@ -140,9 +148,9 @@ public class ConsumerServiceImpl implements ConsumerService {
                 return rootNode.path("detail").asText();
             }
         } catch (Exception ex) {
-            // Log or handle the parsing exception if needed
+            log.error(ex.getMessage(), ex);
         }
-        return message; // Fallback to the original message if parsing fails
+        return message;
     }
 
 }

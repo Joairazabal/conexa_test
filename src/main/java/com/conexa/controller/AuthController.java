@@ -22,8 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AuthController {
 
     private final AuthService authService;
-
-
+    
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequestDTO loginRequest) {
         return this.authService.login(loginRequest);
